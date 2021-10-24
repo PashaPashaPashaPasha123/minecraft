@@ -1,0 +1,152 @@
+.section-container-wrapper {
+    width: 100%;
+}
+
+.section-container-wrapper .section-container {
+    position: relative;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.section-container .section-container-parallax-image-wrapper {
+    position: relative;
+    height: 0px;
+    width: 100%;
+    max-width: 1140px;
+    margin: auto;
+}
+
+.section-container .section-container-parallax-image-wrapper.section-container-parallax-position-top {
+    top: 0%;
+}
+
+.section-container .section-container-parallax-image-wrapper.section-container-parallax-position-bottom {
+    top: 100%;
+}
+
+.section-container-parallax-image-inner {
+    position: relative;
+}
+
+.section-container .section-container-parallax-image {
+    position: relative;
+    width: unset;
+    max-width: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.section-container-parallax-image.section-container-parallax-position-left {
+    left: 0%;
+}
+
+.section-container-parallax-image.section-container-parallax-position-center {
+    left: 50%;
+}
+
+.section-container-parallax-image.section-container-parallax-position-right {
+    left: 100%;
+}
+
+.section-container .section-container-basic-container,
+.section-container .section-container-card-container {
+    width: 100%;
+    padding: 0;
+    background-position: center;
+}
+
+.section-container .section-container-basic-container-inner {
+    width: 100%;
+}
+
+.section-container .section-container-card-inner {
+    position: relative;
+    width: 100%;
+    top: -100px;
+    padding: 70px 100px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+
+/* Section container inside a section container's card */
+
+.section-container-card-inner>.aem-Grid.aem-Grid--12.aem-Grid--default--12>.section-container.aem-GridColumn.aem-GridColumn--default--12 {
+    margin: -70px -0.2% -70px -0.2%;
+    float: none;
+    width: unset;
+}
+
+.section-container-card-inner>.aem-Grid.aem-Grid--12.aem-Grid--default--12>.section-container.aem-GridColumn.aem-GridColumn--default--12 .section-container-basic-container,
+.section-container-card-inner>.aem-Grid.aem-Grid--12.aem-Grid--default--12>.section-container.aem-GridColumn.aem-GridColumn--default--12 .section-container-card-container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media (min-width: 1500px) {
+    /* Section container inside a section container's card */
+    .section-container-card-inner>.aem-Grid.aem-Grid--12.aem-Grid--default--12>.section-container.aem-GridColumn.aem-GridColumn--default--12 {
+        margin-left: -0.3%;
+        margin-right: -0.3%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Section container inside a section container's card */
+    .section-container-card-inner>.aem-Grid.aem-Grid--12.aem-Grid--default--12>.section-container.aem-GridColumn.aem-GridColumn--default--12 {
+        margin-left: -2.27%;
+        margin-right: -2.27%;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Section container inside a section container's card */
+    .section-container-card-inner>.aem-Grid.aem-Grid--12.aem-Grid--default--12>.section-container.aem-GridColumn.aem-GridColumn--default--12 {
+        margin-left: -1.8175%;
+        margin-right: -1.8175%;
+    }
+    .section-container-parallax-image-inner {
+        position: relative;
+        padding: 0px 25px!important;
+    }
+}
+
+
+/*parallax image size in mobile & tablet view */
+
+@media (max-width: 992px) {
+    .section-container .section-container-parallax-image {
+        max-width: 176px;
+    }
+    .section-container .section-container-card-inner {
+        padding: 70px 50px;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 475px) {
+    .section-container .section-container-card-inner {
+        padding: 70px 20px;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 375px) {
+    .section-container .section-container-parallax-image {
+        max-width: 140px;
+    }
+}
+
+
+/*video player icon overlaping parallax card*/
+
+@media (min-width: 0px) and (max-width: 475px) {
+    .section-container.aem-GridColumn.aem-GridColumn--default--12.section-container-space+.section-container .section-container-card-inner {
+        top: -40px;
+    }
+}
+
+@media (min-width: 476px) and (max-width: 630px) {
+    .section-container.aem-GridColumn.aem-GridColumn--default--12.section-container-space+.section-container .section-container-card-inner {
+        top: -50px;
+    }
+}
