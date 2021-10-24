@@ -1,0 +1,15 @@
+var back_btn = $('#back-button-eduBtn');
+
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 30) {
+    back_btn.addClass('show');
+  } else {
+    back_btn.removeClass('show');
+  }
+});
+
+back_btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
+

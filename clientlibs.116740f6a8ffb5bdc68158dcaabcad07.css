@@ -1,0 +1,30 @@
+@media (min-width: 320px) and (max-width: 767px) {
+    .back-button-eduBtn {
+        display: inline-block;
+        background-color: #4e4f4f;
+        width: 45px;
+        height: 43px;
+        text-align: center;
+        position: fixed;
+        bottom: 95px;
+        right: 0;
+        transition: background-color .3s, opacity .5s, visibility .5s;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+    }
+    .back-button-eduBtn.show {
+        opacity: 1;
+        visibility: visible;
+    }
+    .back-button-arrowImg {
+        width: 23px;
+        height: 22px;
+        position: absolute;
+        top: 10.6px;
+        left: 10.6px;
+    }
+    .back-button-btnDisplay {
+        display: block !important;
+    }
+}

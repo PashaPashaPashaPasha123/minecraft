@@ -1,0 +1,1517 @@
+.header-SubmenuContent ul li,
+.header-MenuMobile ul li {
+    margin: 0px !important;
+    list-style-type: none !important;
+}
+
+input,
+textarea,
+label {
+    display: block;
+    outline: none;
+    border: none;
+}
+
+button {
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+iframe {
+    border: none;
+}
+
+.max-w-30 {
+    max-width: 29.66%;
+}
+
+.max-w-40 {
+    max-width: 40.667%;
+}
+
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+[ Header Desktop ]*/
+
+.header-container-menu-desktop a:focus,
+.header-MenuMobile-wrapper a:focus,
+.header-MenuMobile a:focus,
+.header-ModalSearch a:focus,
+.autocomplete-active {
+    outline: -webkit-focus-ring-color auto 1px;
+}
+
+.edu-button:focus {
+    outline: -webkit-focus-ring-color auto 1px;
+}
+
+.header-container-menu-desktop {
+    height: auto;
+    width: 100%;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+
+/*==================================================================
+[ Top bar ]*/
+
+.header-top-bar {
+    height: 60px;
+}
+
+.btn {
+    color: #ffffff!important;
+}
+
+
+/*---------------------------------------------*/
+
+.header-right-top-bar a {
+    height: 100%;
+    margin: 0 25px;
+    text-decoration: none;
+}
+
+.header-right-top-bar a:hover {
+    color: #fff;
+}
+
+.header-UserIcon {
+    background-image: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/signin-logo.svg");
+    width: 22.8px;
+    height: 26px;
+    background-repeat: no-repeat;
+    margin-left: 15px;
+}
+
+.header-TopBar-Mobile {
+    float: left;
+    width: 18.75%;
+    min-height: 100%;
+}
+
+.header-TopBar-Mobile li {
+    padding: 21px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+/*top bar search styling*/
+
+.form-control-feedback {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    z-index: 2;
+    display: block;
+    line-height: 34px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.form-control {
+    border-radius: unset;
+}
+
+.form-control-feedback .header-SearchIcon-mobile {
+    content: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/search-icon.svg");
+    background-repeat: no-repeat;
+    width: 33.7px;
+    height: 30.8px;
+    float: right;
+    right: 0;
+}
+
+.header-SearchWrapper {
+    width: 100%;
+    max-width: 100%;
+    height: 65px;
+    border-bottom: 1px solid #707070;
+    background: transparent;
+}
+
+.header-SearchWrapper input {
+    width: 90%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.header-SearchWrapper input:focus {
+    border: 1px solid #e59700;
+}
+
+.header-SearchWrapper button {
+    width: 10%;
+    height: 100%;
+}
+
+.header-SearchWrapper .header-SearchIcon-mobile {
+    background-image: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/search-icon.svg");
+    background-repeat: no-repeat;
+    width: 28px;
+    height: 25.6px;
+    float: right;
+    right: 0;
+}
+
+.header-IconItem .header-SearchIcon-mobile {
+    background-image: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/search_logo_tab.svg");
+    background-repeat: no-repeat;
+    float: right;
+    right: 0;
+    width: 43.8px;
+    height: 40.1px;
+    object-fit: contain;
+}
+
+
+/*search box styling*/
+
+.header-TextBox {
+    width: 455px;
+    height: 36px;
+    padding: 8px 50px 8px 30px;
+    border: 0;
+}
+
+input.header-TextBox:focus::-webkit-input-placeholder {
+    color: transparent !important;
+}
+
+input.header-TextBox:focus:-moz-placeholder {
+    color: transparent !important;
+}
+
+input.header-TextBox:focus {
+    border-color: transparent;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+}
+
+.form-clear {
+    height: 15.7px;
+    width: 17px;
+    display: inline-block;
+    float: right;
+    background: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/close.svg") center center no-repeat;
+    border: none;
+    position: absolute;
+    background-size: 17px;
+    top: 10px;
+    right: 26.5px;
+    z-index: 11;
+    cursor: pointer;
+    transition: opacity .4s ease;
+}
+
+.flyout-close {
+        background: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/close_icon_mobile.svg")  center center no-repeat;
+        height: 22px;
+        width: 22px;
+        display: inline-block;
+        border: none;
+        position: fixed;
+        z-index: 11;
+        cursor: pointer;
+        transition: opacity .4s ease;
+        overflow: visible;
+        left: 50%;
+        bottom: 20px;
+}
+
+.show-modal-search button.flyout-close {
+    visibility: visible;
+    opacity: 1;
+}
+
+button.flyout-close {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.8s linear;
+}
+
+.header-ExpandSearch .form-clear {
+    right: 15px;
+    top: 15px;
+}
+
+.header-SearchWrapper .form-clear {
+    background: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/close_icon_mobile.svg") center center no-repeat;
+    top: 18px;
+    right: 0;
+    width: 22px;
+    height: 22px;
+}
+
+input.header-TextBox::-webkit-input-placeholder {
+    color: #4e4f4f !important;
+    font-family: NotoSans;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    overflow: visible;
+}
+
+.header-ExpandSearch input.header-TextBox::-webkit-input-placeholder {
+    overflow: hidden;
+}
+
+input.header-TextBox:-moz-placeholder {
+    color: #4e4f4f !important;
+    font-family: NotoSans;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    overflow: visible;
+}
+
+.searchForm input[type="submit"] {
+    height: 25.6px;
+    width: 28px;
+    display: inline-block;
+    float: right;
+    background: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/search-icon.svg") center center no-repeat;
+    text-indent: -10000px;
+    border: none;
+    position: absolute;
+    background-size: 25px;
+    top: 5px;
+    right: 9px;
+    z-index: 2;
+    cursor: pointer;
+    transition: opacity .4s ease;
+}
+
+input.plh3::-webkit-input-placeholder {
+    color: #4e4f4f !important;
+    font-family: NotoSans;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.4;
+    letter-spacing: normal;
+    text-align: left;
+    ;
+}
+
+input.plh3:-moz-placeholder {
+    color: #4e4f4f !important;
+    font-family: NotoSans;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.4;
+    letter-spacing: normal;
+    text-align: left;
+}
+
+.searchForm {
+    align-self: center;
+    position: relative;
+}
+
+
+/*==================================================================
+[ Menu ]*/
+
+.header-wrap-menu-desktop {
+    z-index: 1100;
+    width: 100%;
+    height: 130px;
+    top: 0px !important;
+    position: relative;
+    left: 0px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    -webkit-transition: height 0.3s, background-color 0.3s;
+    -o-transition: height 0.3s, background-color 0.3s;
+    -moz-transition: height 0.3s, background-color 0.3s;
+    transition: height 0.3s, background-color 0.3s;
+}
+
+.header-limiter-menu-desktop {
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+}
+
+
+/*------------------------------------------------------------------
+[ Logo ]*/
+
+.header-EducationLogo {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    width: 256px;
+    height: auto;
+    transition: 0.3s;
+}
+
+.header-EducationLogo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+/*------------------------------------------------------------------
+[ Menu ]*/
+
+.header-MenuDesktop {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.header-MainMenu {
+    list-style-type: none;
+    margin: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+}
+
+.header-QuickstartCta {
+    padding: 0;
+    margin: 0 20px;
+}
+
+.header-MainMenu>li {
+    display: block;
+    padding: 50px 30px;
+    outline: none;
+    cursor: default;
+}
+
+.header-MainMenu-block {
+    float: right;
+    width: 81.2%;
+    min-height: 100%;
+}
+
+.header-MainMenu>li>span {
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    float: left;
+    pointer-events: none;
+    border-bottom: 3px solid transparent;
+}
+
+.header-MainMenu>li::after {
+    content: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/down-arrow.svg");
+    position: absolute;
+    top: 50px;
+    padding-left: 8px;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+
+.header-MainMenu>li:hover::after {
+    content: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/up-arrow.svg");
+    position: absolute;
+    padding-left: 8px;
+    background-repeat: no-repeat;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+
+
+li.submenu-expanded>span {
+    text-decoration: none;
+    color: #488344;
+    border-bottom: 3px solid #488344!important;
+}
+
+li.submenu-expanded::after{
+    content: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/up-arrow.svg");
+    position: absolute;
+    padding-left: 8px;
+    background-repeat: no-repeat;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+
+/*---------------------------------------------*/
+
+.header-SubMenu {
+    transform: translate(-50%, 0%);
+    list-style-type: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 90%;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    height: auto;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    -o-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    -ms-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+     visibility: hidden;
+    opacity:0;
+    /* display:none; */
+    transition-delay:0.3s;
+}
+
+.header-SubmenuContent {
+    padding: 0;
+    text-transform: uppercase;
+    height: auto;
+    display: flex;
+}
+
+.header-SubmenuContent .col-1-menu,
+.header-SubmenuContent .col-2-menu {
+    margin: 40px 0 35px 0;
+    padding-left: 70px;
+}
+
+.header-InnerContent {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.header-MenuBlock {
+    flex: 1 1 100%;
+}
+
+.header-SubmenuHeading-2 {
+    width: 150px;
+    padding-bottom: 25px;
+    padding-top: 0px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+}
+
+.right-border {
+    border-right: 1px solid rgba(0, 0, 0, 0.16);
+}
+
+.left-border {
+    border-left: 1px solid rgba(0, 0, 0, 0.16);
+}
+
+.header-SubmenuHeading-1 {
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+}
+
+.header-SubMenu li {
+    position: relative;
+    background-color: transparent;
+    padding-top: 10px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    list-style-type: none;
+}
+
+.header-MainMenu>li>.header-SubMenu {
+    top: 100%;
+    left: 50%;
+    z-index: 9999;
+    max-width: 1140px;
+}
+
+.header-SubMenu a {
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+}
+
+
+/*---------------------------------------------*/
+
+.header-MainMenu>li:hover>span {
+    text-decoration: none;
+    color: #488344;
+    border-bottom: 3px solid #488344!important;
+}
+
+.header-SubMenu.show-submenu{
+  visibility: visible;
+  opacity: 1;
+}
+
+/* .header-MainMenu>li:focus-within>.header-SubMenu,
+.header-MainMenu>li:hover>.header-SubMenu,
+.header-MainMenu>li:focus>.header-SubMenu {   
+    visibility:visible;
+    opacity:1;
+} */
+
+.header-SubMenu li:hover>.header-SubMenu,
+.header-SubMenu li:focus>.header-SubMenu {
+    display: block;
+}
+
+.header-SubMenu li:hover {
+    background-color: transparent;
+}
+
+.header-IconWrapper {
+    flex-grow: 1;
+}
+
+.header-MenuMobile-wrapper .header-IconWrapper {
+    flex-grow: unset;
+    margin-right: 15px;
+}
+
+.header-IconItem {
+    padding-right: 11px;
+}
+
+
+/*[ Modal search ]*/
+
+.header-ModalSearch {
+    position: fixed;
+    z-index: 2000;
+    width: 100%;
+    height: 100%;
+    bottom: 101%;
+    left: 0;
+    opacity: 0.95;
+    padding: 28.2px 55.5px 41.2px 59px;
+}
+
+.show-modal-search {
+    bottom: 0;
+}
+
+.header-SearchContainer {
+    width: auto;
+    max-width: 100%;
+    position: relative;
+}
+
+
+/*==================================================================
+[ Fixed menu desktop ]*/
+
+.header-FixedMenu .header-wrap-menu-desktop {
+    position: fixed;
+    height: 104px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0px 3px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0px 3px 0px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0px 3px 0px rgba(0, 0, 0, 0.2);
+    -o-box-shadow: 0 0px 3px 0px rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 0 0px 3px 0px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s
+}
+
+.header-FixedMenu .header-EducationLogo {
+    width: 163px;
+}
+
+.header-FixedMenu .header-MegaMenu {
+    padding: 0;
+}
+
+.header-FixedMenu .header-MainMenu>li {
+    padding: 38px 0;
+    margin-right:25px;
+    padding-right:30px;
+    margin-left: 0;
+}
+.header-FixedMenu .header-MainMenu>li:last-child {
+    margin-right: 0;
+}
+
+.header-FixedMenu .header-MainMenu>li::after {
+    top: 38px;
+}
+
+.header-FixedMenu .header-StickyIcons {
+    display: flex !important;
+    align-items: center;
+}
+
+.header-FixedMenu .header-sticky-SearchIcon,
+.header-FixedMenu .header-sticky-UserIcon {
+    width: 25px;
+    margin-left: 45px;
+    display: inline-block;
+}
+
+.header-container-menu-desktop .header-StickyIcons {
+    display: none;
+}
+
+.header-FixedMenu .header-MainMenu>li:last-child{
+    padding-right: 25px;
+}
+.header-FixedMenu .header-LogoSection.col-md-3{
+    flex: 0 0 23.777773%;
+    max-width: 23.777773%;
+}
+.header-FixedMenu .header-MegaMenu.col-md-5{
+    flex: 0 0 43%;
+    max-width: 43%;
+}
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+[ Header Mobile ]*/
+
+.header-MenuMobile-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    height: 117px;
+    padding: 15px;
+    display: none;
+    position: relative;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    -o-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    -ms-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+
+/*------------------------------------------------------------------
+[ Logo mobile ]*/
+
+.header-EduLogo-mobile {
+    display: block;
+    position: relative;
+    height: 80%;
+    padding-right: 25px;
+    -webkit-flex-grow: 1;
+    -moz-flex-grow: 1;
+    flex-grow: 1;
+}
+
+.header-EduLogo-mobile img {
+    max-width: calc(100% - 20px);
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+
+/*------------------------------------------------------------------
+[ btn show menu ]*/
+
+.header-hamburger {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    -o-transform: scale(0.7);
+    transform: scale(0.7);
+}
+
+.header-hamburger:hover {
+    opacity: 1;
+}
+
+
+/*==================================================================
+[ Menu mobile ]*/
+
+.header-UserIcon-Mobile {
+    background-image: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/login-icon.svg");
+    width: 28.4px;
+    height: 32.4px;
+    background-repeat: no-repeat;
+}
+
+.header-SupportIcon {
+    background-image: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/support-icon.svg");
+    width: 34px;
+    height: 34.1px;
+    background-repeat: no-repeat;
+}
+
+.header-DownloadIcon {
+    background-image: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/download-icon.svg");
+    width: 34.7px;
+    height: 37px;
+    background-repeat: no-repeat;
+}
+
+.header-MenuMobile {
+    width: 100%;
+    display: none;
+    position: relative;
+}
+
+.header-MainMenu-block>li>a {
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    padding: 8px 28px;
+}
+
+.header-MenuItem a {
+    pointer-events: unset!important;
+}
+
+.header-MainMenu-block>li>a:hover {
+    color: #4e4f4f;
+}
+
+.header-MainMenu-block>li {
+    position: relative;
+    padding: 21.25px 0;
+    border-bottom: solid 1px #edeeee;
+}
+
+.header-MainMenu-block>li.submenu-main {
+    padding-bottom: 0;
+}
+
+.header-MainMenu-block .header-QuickstartCta-Mobile {
+    margin: 34px 0 34px 28px;
+}
+
+.header-DownArrow {
+    content: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/down-arrow.svg");
+    position: absolute;
+    width: 24.4px;
+    height: 8.8px;
+    right: 58.6px;
+    top: 30.2px;
+    cursor: pointer;
+}
+
+.up-arrow {
+    content: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/up-arrow-mobile.svg") !important;
+}
+
+
+/*hamburger menu styling*/
+
+.header-hamburger {
+    font: inherit;
+    display: inline-block;
+    overflow: visible;
+    margin: 0;
+    padding: 7px;
+    cursor: pointer;
+    transition-timing-function: linear;
+    transition-duration: .15s;
+    transition-property: opacity, filter;
+    text-transform: none;
+    color: inherit;
+    border: 0;
+    background-color: transparent
+}
+
+.header-hamburger-box {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px
+}
+
+.header-HamnurgerInner {
+    top: 50%;
+    display: block;
+    margin-top: -2px
+}
+
+.header-HamnurgerInner,
+.header-HamnurgerInner:after,
+.header-HamnurgerInner:before {
+    position: absolute;
+    width: 60px;
+    height: 5.72px;
+    transition-timing-function: ease;
+    transition-duration: .15s;
+    transition-property: transform;
+    border-radius: 0;
+    background-color: #4e4f4f
+}
+
+.header-HamnurgerInner:after,
+.header-HamnurgerInner:before {
+    display: block;
+    content: ''
+}
+
+.header-HamnurgerInner:before {
+    top: -13px
+}
+
+.header-HamnurgerInner:after {
+    bottom: -13px
+}
+
+.header-hamburger-squeeze .header-HamnurgerInner {
+    transition-timing-function: cubic-bezier(.55, .055, .675, .19);
+    transition-duration: .1s;
+    width: 60px;
+}
+
+.header-hamburger-squeeze .header-HamnurgerInner:before {
+    transition: top .1s ease .14s, opacity .1s ease;
+    width: 60px;
+}
+
+.header-hamburger-squeeze .header-HamnurgerInner:after {
+    transition: bottom .1s ease .14s, transform .1s cubic-bezier(.55, .055, .675, .19);
+    width: 60px;
+}
+
+.header-hamburger-squeeze.is-active .header-HamnurgerInner {
+    transition-delay: .14s;
+    transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+    transform: rotate(45deg);
+    width: 45px !important;
+}
+
+.header-hamburger-squeeze.is-active .header-HamnurgerInner:before {
+    top: 0;
+    transition: top .1s ease, opacity .1s ease .14s;
+    opacity: 0;
+    width: 45px !important;
+}
+
+.header-hamburger-squeeze.is-active .header-HamnurgerInner:after {
+    bottom: 0;
+    transition: bottom .1s ease, transform .1s cubic-bezier(.215, .61, .355, 1) .14s;
+    transform: rotate(-90deg);
+    width: 45px !important;
+}
+
+.header-SubMenu-mobile {
+    padding: 10px 0 0 0;
+    display: none;
+}
+
+.header-SubMenu-mobile a {
+    object-fit: contain;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.88;
+    letter-spacing: normal;
+    padding: 5px 20px;
+}
+
+.header-SubMenu-mobile a:hover {
+    text-decoration: none;
+    color: #555555;
+}
+
+ul.header-SubMenu-mobile li {
+    border-top: 1px solid #edeeee;
+    padding: 12px 0 12px 35px;
+}
+
+.qs-btn {
+    padding: 6px 10px !important;
+}
+
+.edu-button,
+a.edu-button {
+    line-height: 18px;
+    border: 0;
+    text-transform: initial;
+}
+
+.edu-button .line {
+    display: block;
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    opacity: 0.26;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.button-text {
+    padding: 0 5px;
+}
+
+.button-text-dd {
+    padding: 0px 12px;
+}
+
+.button-text-qs {
+    margin: 0px 12px 0px 0px;
+}
+
+.header-MegaMenu {
+    position: static;
+    z-index: 1;
+}
+
+.header-autocompleteItems {
+    position: absolute;
+    border: none;
+    border-bottom: none;
+    border-top: none;
+    z-index: 9999;
+    padding: 28.3px 0 23.7px 30px;
+    background-color: #ffffff;
+    top: 100%;
+    left: 0;
+    right: 0;
+    /* Temporary until autocomplete fast follow */
+    display: none;
+}
+
+.header-autocompleteItems div {
+    cursor: pointer;
+    background-color: #fff;
+    font-family: NotoSans;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.4;
+    letter-spacing: normal;
+    text-align: left;
+    color: #767676;
+}
+
+.header-autocompleteItems div::before {
+    content: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/hexa-arrow-icon.svg");
+    vertical-align: -webkit-baseline-middle;
+    margin-right: 8px;
+    background-repeat: no-repeat;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+}
+
+.header-ExpandSearch {
+    position: relative;
+    width: 0%;
+    min-width: 50px;
+    height: 43px;
+    float: right;
+    -webkit-transition: width 0.3s;
+    -moz-transition: width 0.3s;
+    transition: width 0.3s;
+    -webkit-backface-visibility: hidden;
+}
+
+.header-ExpandSearch .header-autocompleteItems {
+    top: 42px;
+}
+
+.header-ExpandInput {
+    border: medium none;
+    font-family: inherit;
+    font-size: 20px;
+    height: 43px;
+    margin: 0;
+    outline: medium none;
+    padding: 8px 35px 8px 15px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+input[type="search"].header-ExpandInput {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+}
+
+.header-ExpandIcon,
+.header-ExpandBtn {
+    width: 50px;
+    height: 43px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.header-ExpandBtn {
+    background: #fff;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    color: transparent;
+    border: none;
+    outline: none;
+    z-index: -1;
+}
+
+.header-ExpandIcon {
+    background: #ffffff;
+    z-index: 90;
+}
+
+.header-ExpandIcon:before {
+    content: "";
+}
+
+.header-ExpandSearch.header-ExpandSearch-open,
+.no-js .header-ExpandSearch {
+    width: 538px;
+}
+
+.header-ExpandSearch.header-ExpandSearch-open .header-ExpandIcon,
+.no-js .header-ExpandSearch .header-ExpandIcon {
+    background: #e9f4e7;
+    color: #fff;
+    z-index: 11;
+}
+
+.header-ExpandSearch.header-ExpandSearch-open .header-ExpandBtn,
+.no-js .header-ExpandSearch .header-ExpandBtn {
+    /*    z-index: 90;*/
+}
+
+.header-TeachImage-block {
+    width: 235px;
+    display: table-row;
+}
+
+.header-ExploreImage-block {
+    width: 198px;
+    display: table-row;
+}
+
+
+/*Mobile styling */
+
+@media (min-width: 576px) {
+    .header-MenuMobile-wrapper {
+        padding: 15px 60px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 575px) {
+    .header-IconItem .header-SearchIcon-mobile {
+        background-size: 30px;
+        width: 30px;
+        height: 30px;
+    }
+    .header-MenuMobile-wrapper {
+        height: 80px;
+        padding: 15px 30px;
+    }
+    .header-TopBar-Mobile li {
+        padding: 15px;
+    }
+    .header-UserIcon-Mobile,
+    .header-SupportIcon,
+    .header-DownloadIcon {
+        background-size: 20px;
+    }
+    .header-TopBar-Mobile {
+        width: 22%;
+    }
+    .header-MainMenu-block {
+        width: 78%;
+    }
+    .header-MainMenu-block>li>a {
+        font-size: 16px;
+    }
+    li.header-MenuItem {
+        cursor: pointer;
+    }
+    .header-SubMenu-mobile a {
+        font-size: 14px;
+    }
+    .header-HamnurgerInner,
+    .header-HamnurgerInner:after,
+    .header-HamnurgerInner:before {
+        width: 42px;
+        height: 4px;
+    }
+    .header-HamnurgerInner:before {
+        top: -10px;
+    }
+    .header-HamnurgerInner:after {
+        bottom: -10px;
+    }
+    .header-ModalSearch {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .header-MainMenu-block li.profile-title {
+        padding: 24.25px 0!important;
+    }
+}
+
+
+/* Tablet styling */
+
+@media (min-width: 992px) {
+    .header-autocompleteItems {
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    }
+}
+
+@media (max-width: 991px) {
+    .edu-header header {
+        display: grid;
+    }
+    .header-MenuMobile-wrapper {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        z-index: 99;
+    }
+    .header-autocompleteItems {
+        background: none;
+        box-shadow: none;
+    }
+    .header-container-menu-desktop {
+        display: none;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .header-MainMenu>li {
+        padding:52px 20px;
+        margin-right: 20px;       
+    }
+    .header-MainMenu>li>span {
+        font-size: 12.9px;
+    }
+    .header-SubmenuContent .col-1-menu,
+    .header-SubmenuContent .col-2-menu {
+        padding-left: 30px;
+    }
+    .header-QuickstartCta {
+        margin: 0;
+    }
+    .header-FixedMenu .header-sticky-SearchIcon,
+    .header-FixedMenu .header-sticky-UserIcon {
+        margin: 0 auto;
+    }
+    .header-InnerContent {
+        padding: 20px;
+    }
+    .header-TeachImage-block,
+    .header-ExploreImage-block {
+        height: auto;
+    }
+}
+
+
+/* Color contrast media query */
+
+@media screen and (-ms-high-contrast: black-on-white) {
+    .edu-button {
+        border: solid 1px #000 !important;
+    }
+    .header-UserIcon {
+        background-image: url("../../../etc.clientlibs/minecraft-edu/clientlibs/clientlib-common/resources/images/edu-header/signin-logo-HCW.svg");
+    }
+    .searchForm {
+        border: 2px solid #000;
+    }
+    .signedin-menu .drop-arrow path {
+        stroke: black!important;
+    }
+    .signedin-menu.active .dropdown-profile-menu {
+        border: 1px solid #000;
+    }
+}
+
+@media screen and (-ms-high-contrast: white-on-black) {
+    .edu-button {
+        border: solid 1px #ffffff !important;
+    }
+    .searchForm {
+        border: 2px solid #fff;
+    }
+    .signedin-menu .drop-arrow path {
+        stroke: white !important;
+    }
+    .signedin-menu.active .dropdown-profile-menu {
+        border: 1px solid #fff;
+    }
+}
+
+
+/*--------------Profile dropdown-------------*/
+
+.header-MainMenu-block li {
+    position: relative;
+    padding: 21.25px 0;
+    border-bottom: solid 1px #edeeee;
+}
+
+.signedin-menu {
+    display: block;
+    position: relative;
+}
+
+.signedin-menu a {
+    font-family: NotoSans-Bold!important;
+    font-size: 15px;
+    border: none;
+    color: #fff !important;
+    padding: 0px 2px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: right 25px;
+    line-height: 18px;
+}
+
+.signedin-menu .drop-arrow {
+    transform: rotate(180deg);
+    margin-left: 10px;
+    margin-top: 2px;
+}
+
+.signedin-menu.active .drop-arrow {
+    transform: rotate(0deg);
+    margin-left: 10px;
+    margin-top: 4px;
+}
+
+.dropdown-profile-menu {
+    display: none;
+    position: absolute;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    z-index: 1;
+    padding: 20px 0px;
+}
+
+.dropdown-profile-menu a {
+    float: none;
+    color: #fff !important;
+    padding: 12px 27px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-family: NotoSans-Bold;
+    font-size: 15px;
+    line-height: 18px;
+    text-transform: uppercase;
+}
+
+.dropdown-profile-menu a:hover {
+    /* background-color: #447a3f;*/
+    text-decoration: underline;
+}
+
+.signedin-menu.active .dropdown-profile-menu{
+    display: block;
+    width: 100%;
+    z-index: 1500;
+}
+
+.signedin-menu .svg-profile {
+    float: left;
+    margin-right: 18px;
+    margin-top: 0px;
+    display: inline-block;
+}
+
+.pro-img {
+    mask-position: center;
+}
+
+#hexagonal-mask {
+    mask-position: center;
+    mask-position: 10% 50%;
+}
+
+ul.mobilemenu {
+    margin-bottom: 0px;
+}
+
+
+/*----------MOBILE VIEW-------------*/
+
+#hexagonal-mask-mobile {
+    mask-position: center;
+    mask-position: 10% 50%;
+}
+
+.dropdown {
+    float: left;
+    background-color: #333;
+}
+
+.dropbtn {
+    text-align: center;
+    padding: 16.7px 20px!important
+}
+
+.dropdown .dropbtn {
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.profile-menu-active,
+.dropbtn:hover,
+.profile-menu-active:focus {
+    background-color: #488344;
+}
+
+.dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    z-index: 1;
+    left: 100%;
+    float: right;
+    top: 0px;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.profile-dropdown-mobile.header-MainMenu-block {
+    float: left !important;
+}
+
+.profile-title {
+    text-transform: none;
+}
+
+a.mc-skip-to-main {
+    position: absolute;
+    top: auto;
+    overflow: hidden;
+    font-size: 16px;
+    font-family: NotoSans;
+    font-weight: 400;
+}
+
+a.mc-skip-to-main,a.mc-skip-to-main:hover {
+    left: -999px;
+    width: 1px;
+    height: 1px
+}
+
+a.mc-skip-to-main:focus,a.mc-skip-to-main:active {
+    background: #e6e6e6;
+    color: #0067b8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    overflow: auto;
+    right: 0;
+    text-decoration: underline;
+    text-align: center;
+    z-index: 99999;
+    outline: none
+}
+
+.x-hidden-focus {
+    outline-color: transparent !important;
+    outline-style: none !important
+}
+
+a.mc-skip-to-main:focus {
+    border: 1px dashed #000;
+    outline: none !important
+}
+
+a.mc-skip-to-main {
+    left: -999px;
+    position: absolute;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden
+}

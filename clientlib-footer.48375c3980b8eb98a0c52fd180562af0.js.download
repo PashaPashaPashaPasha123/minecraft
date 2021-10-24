@@ -1,0 +1,31 @@
+const custmEvent = new Event('consentChanged')
+function GetConsentValues() {
+    var currentConsent = siteConsent.getConsent();
+}
+
+function onConsentChanged(categoryPreferences) {
+    GetConsentValues();
+    window.dispatchEvent(custmEvent)
+}
+
+(function () {
+    window.siteConsent = null;    
+    WcpConsent.init("en-us", "cookie-banner", function (err, _siteConsent) {
+        if (err != undefined) {
+            return err;
+        } else {
+            siteConsent = _siteConsent;
+        }
+    }, onConsentChanged);
+    GetConsentValues();
+    if (window.siteConsent) {
+        if(siteConsent.isConsentRequired) {
+            $("#manageConsent").css("display", "block");
+        }
+    }
+})();
+
+function manageConsent() {
+    siteConsent.manageConsent();
+    window.dispatchEvent('consentChanged')
+}

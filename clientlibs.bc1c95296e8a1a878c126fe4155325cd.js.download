@@ -1,0 +1,15 @@
+$('document').ready(function () {
+    $("#edu-header-signed-in-menu").hover(
+        function () {
+            $("#edu-header-signed-in-menu").addClass("active");
+        },
+        function () {
+            $("#edu-header-signed-in-menu").removeClass("active");
+        }
+    );
+    $("#edu-header-signed-in-menu").keypress(function (e) {
+        if (e.key == "Enter") {
+            $("#edu-header-signed-in-menu").toggleClass("active")
+        }
+    });
+});

@@ -1,0 +1,32 @@
+/*==================================================================
+[ If user not logged in but tried to access /login/<page-name>,
+redirect to login ]*/
+
+if ( !getCookie("wcmmode") && !getCookie("is-logged-in")
+            && document.location.pathname.indexOf("/login/") !== -1) {
+    window.location.replace("/api/edu/login");
+    localStorage.setItem("pageName",document.location.pathname);
+} else if(getCookie("is-logged-in")
+            && document.location.pathname.indexOf("/my-classroom") !== -1
+            && localStorage.getItem("pageName")!==""
+            && localStorage.getItem("pageName").indexOf("/my-classroom") === -1) {
+    window.location.replace(localStorage.getItem("pageName"));
+    localStorage.setItem("pageName", "");
+}
+
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}

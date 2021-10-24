@@ -1,0 +1,522 @@
+(function ($) {
+    "use strict";
+
+    /*==================================================================
+    [ Fixed Header ]*/
+    var headerDesktop = $('.header-container-menu-desktop');
+    var wrapMenu = $('.header-wrap-menu-desktop');
+    var stickyIcons = $('.header-limiter-menu-desktop');
+
+    if ($('.header-top-bar').length > 0) {
+        var posWrapHeader = $('.header-top-bar').height();
+    } else {
+        var posWrapHeader = 0;
+    }
+
+    function headerOnScroll(scrollTop) {
+        if (scrollTop > posWrapHeader) {
+            $(headerDesktop).addClass('header-FixedMenu');
+            $(wrapMenu).css('top', 0);
+            $(stickyIcons).find('.header-LogoSection').addClass("col-md-3").removeClass('col-md-4')
+            $(stickyIcons).find('.header-MegaMenu').addClass("col-md-5").removeClass('col-md-6')
+        } else {
+            $(headerDesktop).removeClass('header-FixedMenu');
+            $(wrapMenu).css('top', posWrapHeader - $(this).scrollTop());
+            $(stickyIcons).find('.header-LogoSection').addClass("col-md-4").removeClass('col-md-3')
+            $(stickyIcons).find('.header-MegaMenu').addClass("col-md-6").removeClass('col-md-5')
+        }
+    }
+    headerOnScroll($(window).scrollTop());
+
+    $(window).on('scroll', function () {
+        headerOnScroll($(this).scrollTop());
+    });
+
+    /*==================================================================
+    [ Menu mobile ]*/
+    $('.header-MenuBtn-show').on('click keypress', function () {
+        $(this).toggleClass('is-active');
+        $('.header-MenuMobile').slideToggle();
+    });
+
+    var arrowMainMenu = $('.header-MenuItem');
+
+    for (var i = 0; i < arrowMainMenu.length; i++) {
+        $(arrowMainMenu[i]).on('click keypress', function () {
+            var ele = $(this)
+            ele.siblings().find('.header-SubMenu-mobile').hide();
+            ele.siblings().find('.header-DownArrow').removeClass('up-arrow')
+            ele.find('.header-SubMenu-mobile').slideToggle();
+            ele.find('.header-DownArrow').toggleClass('up-arrow');
+            ele.find("ul").toggleClass("submenu-main");
+        })
+    }
+
+    $(window).resize(function () {
+        if ($(window).width() >= 992) {
+            if ($('.header-MenuMobile').css('display') == 'block') {
+                $('.header-MenuMobile').css('display', 'none');
+                $('.header-MenuBtn-show').toggleClass('is-active');
+            }
+
+            $('.header-SubMenu-mobile').each(function () {
+                if ($(this).css('display') == 'block') {
+                    var ele = $(this)
+                    ele.css('display', 'none');
+                    $(arrowMainMenu).removeClass('up-arrow');
+                    ele.parent().css("margin", "0")
+                }
+            });
+
+        }
+    });
+
+     $(document).keyup(function (e) {
+        const keyCode = e.key;
+        if (keyCode === "Escape") { 
+            if($('.header-ModalSearch').hasClass('show-modal-search')){
+                $('.header-ModalSearch').removeClass('show-modal-search');
+                $('.header-modal-SearchIcon-show').css('opacity', '1');
+                focusAnElement('.header-modal-SearchIcon-show');
+                $('.form-clear').click();
+            }
+        }
+        })
+    
+    /*================================================================
+    Focus Show hide for dropdown
+    */
+
+    function toggleExploreDropdown(shouldDisplay, escKeyPress=false) {
+        const exploreDropdown = $(".explore-dropdown");
+        const exploreDropdownSpan = $('.explore-dropdown span');
+        const exploreDropdownSubMenu = $(".explore-dropdown").find('.header-SubMenu');
+        if (!shouldDisplay) {
+            exploreDropdown.removeClass('submenu-expanded');
+            exploreDropdownSubMenu.removeClass('show-submenu');
+            if(escKeyPress){
+                exploreDropdownSpan.focus();
+            }
+        } else {
+            exploreDropdown.addClass('submenu-expanded')
+            exploreDropdownSubMenu.addClass('show-submenu');
+        }
+    }
+
+    function toggleTeachDropdown(shouldDisplay, escKeyPress=false) {
+        const teachDropdown = $(".teach-dropdown");
+        const teachDropdownSpan = $(".teach-dropdown span");
+        const teachDropdownSubMenu = $(".teach-dropdown").find('.header-SubMenu');
+        if (!shouldDisplay) {
+            teachDropdown.removeClass('submenu-expanded');
+            teachDropdownSubMenu.removeClass('show-submenu');
+            if(escKeyPress){
+                teachDropdownSpan.focus();
+            }
+        }else {
+            teachDropdown.addClass('submenu-expanded');
+            teachDropdownSubMenu.addClass('show-submenu');
+        }
+    }
+
+    function isParentNode(parent, child) {
+        let node = child.parentNode;
+        while (node != null) {
+            if (node == parent) {
+                return true;
+            }
+            node = node.parentNode;
+        }
+        return false;
+    }
+ 
+    $(".explore-dropdown").keyup(function (e) {
+        const keyCode = e.key;
+        if (keyCode === "Escape") { 
+           toggleExploreDropdown(false, true);
+        }
+    });
+    
+     $(".teach-dropdown").keyup(function (e) {
+        const keyCode = e.key;
+        if (keyCode === "Escape") {
+           toggleTeachDropdown(false, true);
+        }
+    });
+
+    $("body").on("click focusin", (e) => {
+        const exploreDropdown = $(".explore-dropdown")[0];
+        const teachDropdown = $(".teach-dropdown")[0];
+        const activeNode = e.target;
+        if (!isParentNode(exploreDropdown, activeNode)) {
+            toggleExploreDropdown(false)
+        } if (!isParentNode(teachDropdown, activeNode)) {
+            toggleTeachDropdown(false)
+        }
+    })
+
+    $(".explore-dropdown span").keyup(function (e) {
+        const keyCode = e.key
+        if (keyCode === 'Enter') {
+            toggleExploreDropdown(true)
+        }
+    });
+
+    $(".explore-dropdown span").click(function () {
+        toggleExploreDropdown(true)
+    });
+
+    $(".teach-dropdown span").keyup(function (e) {
+        const keyCode = e.key
+        if (keyCode === 'Enter') {
+            toggleTeachDropdown(true)
+        }
+    });
+
+    $(".teach-dropdown span").click(function () {
+        toggleTeachDropdown(true)
+    });
+
+    $(".explore-dropdown").mouseenter(function () {
+        toggleExploreDropdown(true);
+    });
+
+    $(".teach-dropdown").mouseenter(function () {
+        toggleTeachDropdown(true);
+    });
+
+    $(".explore-dropdown").mouseleave(function () {
+        toggleExploreDropdown(false);
+    });
+
+    $(".teach-dropdown").mouseleave(function () {
+        toggleTeachDropdown(false);
+    });
+
+    /*==================================================================
+    [ Show / hide modal search ]*/
+    $('.header-modal-SearchIcon-show').on('click keypress', function(e) {
+        $('.header-ModalSearch').addClass('show-modal-search');
+        $(this).css('opacity', '0');
+        keepFocusinModal('.header-ModalSearch');//To move and keep focus inside modal
+        e.preventDefault();//To prevent any value in input box when any other key pressed instead of enter button
+    });
+    
+    $('.header-modal-SearchIcon-hide .flyout-close').on('click', function() {
+        $('.header-ModalSearch').removeClass('show-modal-search');
+        $('.header-modal-SearchIcon-show').css('opacity', '1');
+        focusAnElement('.header-modal-SearchIcon-show'); //move focus down from modal to search icon
+        $('.form-clear').click(); // to clear input box after closing flyout
+    });
+    
+/* To move and keep focus in modal after event of opning modal triggered*/
+    function keepFocusinModal(modalSelector){
+        const  focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+        const modal = document.querySelector(modalSelector); // select the modal by it's class
+        const firstFocusableElement = modal.querySelectorAll(focusableElements)[0]; // get first element to be focused inside modal
+        const focusableContent = modal.querySelectorAll(focusableElements);
+        const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') { //if tab key pressed
+                if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
+                firstFocusableElement.focus(); // add focus for the first focusable element
+                e.preventDefault();
+                }
+            }else{
+                return;
+            }
+        });
+    firstFocusableElement.focus();
+    }
+
+    function focusAnElement(elememt){
+        $(elememt).focus();
+    }
+    
+    $('.header-SearchContainer').on('click', function(e) {
+        e.stopPropagation();
+    });
+
+    /*search icon change for mobile/desktop*/
+    $('.searchForm :input').on('keydown', function () {
+        var ele = $(this)
+        ele.nextAll('.form-clear').addClass('d-none');
+        ele.nextAll('.flexChildTwo').addClass('d-none');
+        ele.nextAll('.header-ExpandIcon').removeClass('d-none')
+    }).on('keydown keyup blur', function () {
+        if ($(this).val().length === 0) {
+            var ele = $(this)
+            ele.css('text-decoration', 'none')
+            ele.nextAll('.form-clear').addClass('d-none');
+            ele.nextAll('.flexChildTwo').removeClass('d-none');
+            ele.nextAll('.header-ExpandIcon').removeClass('d-none')
+        }
+
+        if ($(this).val().length > 0) {
+            var ele = $(this)
+            ele.css('text-decoration', 'underline')
+            ele.nextAll('.flexChildTwo').addClass('d-none');
+            ele.nextAll('.form-clear').removeClass('d-none');
+            ele.nextAll('.header-ExpandIcon').addClass('d-none')
+        }
+    });
+
+    $('.form-clear').on('click keydown', function () {
+        var ele = $(this)
+        ele.addClass('d-none').prevAll(':input').val('');
+        ele.prevAll(':input').css('text-decoration', 'none').removeClass('d-none');
+        ele.prevAll('.header-ExpandIcon').removeClass('d-none')
+    });
+
+    $('.header-SearchWrapper :input').on('keydown focus', function () {
+        var ele = $(this)
+        if (ele.val().length > 0) {
+            ele.css('text-decoration', 'underline')
+            ele.nextAll('.form-clear').removeClass('d-none');
+            ele.nextAll('button').addClass('d-none')
+        }
+    }).on('keydown keyup blur', function () {
+        var ele = $(this)
+        if (ele.val().length === 0) {
+            ele.css('text-decoration', 'none')
+            ele.nextAll('.form-clear').addClass('d-none');
+            ele.nextAll('button').removeClass('d-none');
+        }
+    });
+    $('.form-clear').on('click', function () {
+        var ele = $(this)
+        ele.addClass('d-none').prevAll(':input').val('');
+        ele.prevAll('button').removeClass('d-none')
+        ele.next('#searchautocomplete-list').css('display', 'none')
+    });
+
+    /*input focus styling*/
+    $('input.header-TextBox').focus(function () {
+        $('.header-ExpandIcon').css('background', '#ffffff');
+    }).blur(function () {
+        $('.header-ExpandIcon').removeAttr('style');
+        $('.header-ExpandIcon').removeClass('d-none');
+    });
+
+    /* Search hookup */
+    $('input.header-TextBox').on('keyup', function (e) {
+        searchNavigation(e);
+    });
+
+    $('input#search').on('keyup', function (e) {
+        searchNavigation(e);
+    });
+
+    function searchNavigation(e) {
+        if (e.key === "Enter") {
+            var parent = e.target.parentElement;
+            var action = parent.action;
+            var value = e.target.value;
+
+            if (value.length > 0) {
+                window.location = action + "?search=" + value;
+            } else {
+                //window.location = action; //should not be submit
+                e.preventDefault(); //prevent submite in any key  
+            }
+        }
+    }
+
+    /*input expand function*/
+    var submitIcon = $('.header-ExpandIcon');
+    var submitInput = $('.header-ExpandInput');
+    var searchBox = $('.header-ExpandSearch');
+    var menuhide = $('.header-MegaMenu')
+    var isOpen = false;
+
+    $(document).mouseup(function () {
+        if (isOpen == true) {
+            submitInput.val('');
+            $('.header-ExpandBtn').css('z-index', '-999');
+            submitIcon.click();
+        }
+    });
+
+    submitIcon.mouseup(function () {
+        return false;
+    });
+
+    searchBox.mouseup(function () {
+        return false;
+    });
+
+    submitIcon.click(function () {
+        if (isOpen == false) {
+            searchBox.addClass('header-ExpandSearch-open');
+            menuhide.addClass('invisible')
+            submitInput.css('text-decoration', 'none')
+            isOpen = true;
+        } else {
+            searchBox.removeClass('header-ExpandSearch-open');
+            menuhide.removeClass('invisible')
+            $('.form-clear').addClass('d-none')
+            $('.ExpIheader-ExpandIconcon').removeClass('d-none')
+            isOpen = false;
+        }
+    });
+
+    if (getCookie('user-name') && getCookie('is-new-user') == 'false') {
+        $('.user-name').text(getCookie('user-name') + ($('.profile-page-title').text().length == 0 ? " " + getCookie('last-name') : '\'s'));
+        getCookie('profile-image') && $('.prof-img').attr("xlink:href", getCookie('profile-image'));
+        showSignedInMenu(true);
+    } else if ((!getCookie('user-name') && getCookie('is-new-user') == 'false')) {
+        $.ajax({
+            url: "/bin/minecraft-edu/userProfileServlet.getdata.json",
+            success: function (result) {
+                $('.user-name').text(result.FirstName + ($('.profile-page-title').text().length == 0 ? " " + result.LastName : '\'s'));
+                result.ProfileImageName && $('.prof-img').attr("xlink:href", result.ProfileImageName);
+                showSignedInMenu(true);
+            }
+        });
+    } else {
+        showSignedInMenu(false);
+    }
+
+    function showSignedInMenu(showSignedInMenu) {
+        if (showSignedInMenu) {
+            $('.signedin-menu').show();
+            $('.signin-icon-link').hide();
+        } else {
+            $('.signedin-menu').hide();
+            $('.signin-icon-link').show();
+        }
+    }
+
+    $('#showprofilemenu').click(function () {
+        $(this).toggleClass('profile-menu-active')
+        $('.profile-dropdown-mobile').toggle("slide");
+        $('.default-menu').toggle("slide").toggleClass('d-none');
+    });
+
+    //focus on back to top button
+    $(document).on('keydown', function (e) {
+        var test = $("body a[href]").last();
+        $(test).on("keydown", function () {
+            var keyCode = e.keyCode || e.which;
+
+            if (keyCode == 9) {
+                $('body').find('.back-button-eduBtn.show').focus()
+
+            }
+        });
+    });
+
+    $('.media-block-modal-button').click(function() {
+        const modalId = $(this).attr("href");
+        if(modalId.charAt() === '#'){
+            $(modalId).css('display', 'block');
+        }
+    })
+
+})(jQuery);
+function autocomplete(inp, arr) {
+    /*the autocomplete function takes two arguments,
+    the text field element and an array of possible autocompleted values:*/
+    var currentFocus;
+    /*execute a function when someone writes in the text field:*/
+    if(inp){
+    inp.addEventListener("input", function (e) {
+        var a, b, i, val = this.value;
+        /*close any already open lists of autocompleted values*/
+        closeAllLists();
+        if (!val) { return false; }
+        currentFocus = -1;
+        /*create a DIV element that will contain the items (values):*/
+        a = document.createElement("DIV");
+        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("class", "header-autocompleteItems");
+        /*append the DIV element as a child of the autocomplete container:*/
+        this.parentNode.appendChild(a);
+        /*for each item in the array...*/
+        for (i = 0; i < arr.length; i++) {
+            /*check if the item starts with the same letters as the text field value:*/
+            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                /*create a DIV element for each matching element:*/
+                b = document.createElement("DIV");
+                /*make the matching letters bold:*/
+                b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                b.innerHTML += arr[i].substr(val.length);
+                /*insert a input field that will hold the current array item's value:*/
+                b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                /*execute a function when someone clicks on the item value (DIV element):*/
+                b.addEventListener("click", function (e) {
+                    /*insert the value for the autocomplete text field:*/
+                    inp.value = this.getElementsByTagName("input")[0].value;
+                    /*close the list of autocompleted values,
+                    (or any other open lists of autocompleted values:*/
+                    closeAllLists();
+                });
+                a.appendChild(b);
+            }
+        }
+    });
+    /*execute a function presses a key on the keyboard:*/
+    inp.addEventListener("keydown", function (e) {
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) {
+            /*If the arrow DOWN key is pressed,
+            increase the currentFocus variable:*/
+            currentFocus++;
+            /*and and make the current item more visible:*/
+            addActive(x);
+        } else if (e.keyCode == 38) { //up
+            /*If the arrow UP key is pressed,
+            decrease the currentFocus variable:*/
+            currentFocus--;
+            /*and and make the current item more visible:*/
+            addActive(x);
+        } else if (e.keyCode == 13) {
+            /*If the ENTER key is pressed, prevent the form from being submitted,*/
+            e.preventDefault();
+            if (currentFocus > -1) {
+                /*and simulate a click on the "active" item:*/
+                if (x) x[currentFocus].click();
+            }
+        }
+    });
+    }
+    function addActive(x) {
+        /*a function to classify an item as "active":*/
+        if (!x) return false;
+        /*start by removing the "active" class on all items:*/
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        /*add class "autocomplete-active":*/
+        x[currentFocus].classList.add("autocomplete-active");
+    }
+    function removeActive(x) {
+        /*a function to remove the "active" class from all autocomplete items:*/
+        for (var i = 0; i < x.length; i++) {
+            x[i].classList.remove("autocomplete-active");
+        }
+    }
+    function closeAllLists(elmnt) {
+        /*close all autocomplete lists in the document,
+        except the one passed as an argument:*/
+        var x = document.getElementsByClassName("header-autocompleteItems");
+        for (var i = 0; i < x.length; i++) {
+            if (elmnt != x[i] && elmnt != inp) {
+                x[i].parentNode.removeChild(x[i]);
+            }
+        }
+    }
+    /*execute a function when someone clicks in the document:*/
+    document.addEventListener("click", function (e) {
+        closeAllLists(e.target);
+    });
+}
+
+/*An array containing all the country names in the world:*/
+var countries = ["Lorem ipsum", "Lorem ipsum", "Lorem ipsum"];
+var getids = ["top_search","sticky_search","search"];
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+for (var i = 0; i < getids.length; i++) {
+    autocomplete(document.getElementById(getids[i]), countries);
+}
